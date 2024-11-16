@@ -36,18 +36,24 @@ export function Calculator() {
   function result(e) {
     e.preventDefault();
     try {
-      const resValue = evaluate(keypad); // Use the keypad value directly here
-      setRes(resValue); // Set the result
-      setKeypad(resValue); // Update the keypad with the result as well
+      const resValue = evaluate(keypad);
+      setRes(resValue); 
+      setKeypad(resValue);
     } catch (err) {
-      setRes('Error'); // Handle any errors (invalid expressions)
+      setRes('Error');
     }
   }
 
   // Delete the last character
   function delPad(e) {
     e.preventDefault();
-    setKeypad((prevKeypad) => prevKeypad.slice(0, -1));
+    if(res !== ""){
+      setKeypad(res.toString());
+      setRes("");
+    }else{
+      setKeypad((prevKeypad) => prevKeypad.slice(0, -1));
+
+    }
   }
 
   // Clear the input
