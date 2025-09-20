@@ -1,60 +1,84 @@
-body{
-     height: 100vh;
-     background: linear-gradient(0deg, rgba(238,245,246,0) 0%, rgba(18,75,222,0.8057598039215687) 100%);
-     background-repeat: no-repeat;
+body {
+  height: 100vh;
+  background: linear-gradient(0deg, rgba(238,245,246,0) 0%, rgba(18,75,222,0.8) 100%);
+  background-repeat: no-repeat;
 }
 
-.container{
-     margin-top: 100px;
-     display: flex;
-     justify-content:center;
-     height: 500px;
-     width: 400px !important;
-     border: 13px outset black;
-     border-radius: 30px;
-     box-sizing: border-box;
-     box-shadow: 35px 35px 20px rgba(0 ,0,0,0.3);
-     background:  radial-gradient(circle, rgb(167, 214, 168) 0%, rgb(87, 152, 205) 100%);
+.container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  width: 400px !important; /* Keep fixed width on desktop */
+  border: 13px outset black;
+  border-radius: 30px;
+  box-sizing: border-box;
+  box-shadow: 35px 35px 20px rgba(0, 0, 0, 0.3);
+  background: radial-gradient(circle, rgb(167, 214, 168) 0%, rgb(87, 152, 205) 100%);
+  /* Added so container won't overflow on small screens */
+  max-width: 95vw;
 }
 
-form button{
-     width: 70px;
-     height: 50px;
-     margin: 5px 6px;
-
-}
-#display{
-     margin-top: 25px;
-     width: 100%;
-     height: 65px;
-     border: 5px groove rgb(9, 135, 225);
-     border-radius: 10px;
-     background: rgba(0, 9, 12, 0.6);
-     box-sizing: border-box;
-     box-shadow: 10px 10px 40px rgba(0 ,0,0,0.4);
-     font-size: 25px;
-     text-align: right;
-}
-#buttons{
-     margin-top: 20px;
+form button {
+  width: 70px;
+  height: 50px;
+  margin: 5px 6px;
+  font-size: 1.2rem; /* consistent font size */
 }
 
+#display {
+  margin-top: 25px;
+  width: 100%;
+  height: 65px;
+  border: 5px groove rgb(9, 135, 225);
+  border-radius: 10px;
+  background: rgba(0, 9, 12, 0.6);
+  box-sizing: border-box;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+  font-size: 25px;
+  text-align: right;
+}
 
-.btn-outline-primary {
-     font-size: 29px;
+#buttons {
+  margin-top: 20px;
 }
-.btn-outline-danger {
-     font-size: 29px; 
-}
-.btn-outline-warning {
-     font-size: 29px;
-}
+
+/* Button outline sizes */
+.btn-outline-primary,
+.btn-outline-danger,
+.btn-outline-warning,
 .btn-outline-secondary {
-     font-size: 29px; 
-}
-.equal{
-     border-radius: 10px;
-     background: linear-gradient(90deg, rgb(224, 183, 224) 0%, rgb(137, 96, 219) 70%);
+  font-size: 29px;
 }
 
-   
+.equal {
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgb(224, 183, 224) 0%, rgb(137, 96, 219) 70%);
+  /* keep width from inline style or put here */
+  width: 46% !important;
+}
+
+/* Responsive part - scales container and buttons on small screens */
+@media (max-width: 450px) {
+  .container {
+    width: 95vw !important; /* almost full width on small devices */
+    height: auto; /* allow height to grow */
+    margin-top: 40px;
+  }
+
+  form button {
+    width: 50px;
+    height: 40px;
+    margin: 4px 4px;
+    font-size: 1rem;
+  }
+
+  #display {
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .equal {
+    width: 40% !important;
+  }
+}
